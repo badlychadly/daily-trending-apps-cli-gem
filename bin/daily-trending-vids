@@ -1,1 +1,8 @@
 #!/usr/bin/env ruby
+
+require './lib/daily_trending'
+
+puts "hey there"
+
+
+DailyTrending::Cli.new.call
