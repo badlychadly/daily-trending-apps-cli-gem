@@ -13,8 +13,16 @@ Possible websites to scrape
 ///////////////
 -CLI for daily trending videos
 
--shows a list of todays trending videos 
+-shows a list of todays trending videos
 
 -user chooses which one to learn more about
 provides details for user
 provides link for the user
+
+
+What is a vid??
+
+vid has a name
+vid has a url
+vid has a description
+vid has views

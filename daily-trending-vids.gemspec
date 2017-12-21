@@ -4,7 +4,7 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require "daily_trending/version"
 
 Gem::Specification.new do |spec|
-  spec.name          = "daily_trending"
+  spec.name          = "daily-trending-vids"
   spec.version       = DailyTrending::VERSION
   spec.authors       = ["'Chad Montoya'"]
   spec.email         = ["'chadmontoya21@yahoo.com'"]
