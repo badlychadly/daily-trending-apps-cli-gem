@@ -8,14 +8,20 @@ class DailyTrending::Cli
 
   def list_vids
     puts "Today's Trendables"
-    puts <<-DOC
-    1. BITTEN by a GIANT DESERT CENTIPEDE!#.colorize
-                1,300,174 views
-
-    2.Lucky the iPhone singing cockatiel is OVER it!#.colorize
-                449,340 views
-    DOC
-    @vid = DailyTrending::Vid.today
+    # puts <<-DOC
+    # 1. BITTEN by a GIANT DESERT CENTIPEDE!#.colorize
+    #             1,300,174 views
+    #
+    # 2.Lucky the iPhone singing cockatiel is OVER it!#.colorize
+    #             449,340 views
+    # DOC
+    @vids = DailyTrending::Vid.today
+    @vids.each.with_index(1) do |vid, i|
+      puts <<-DOC
+      #{i} #{vid.title.colorize(:green)}
+                    #{vid.views}  views
+      DOC
+    end
   end
 
     def menu
@@ -23,12 +29,10 @@ class DailyTrending::Cli
       until input == 'exit'
         puts "Enter the number of the video you that interests you or type exit"
         input = gets.strip.downcase
-        case input
-        when '1'
-          vid_info
-        when '2'
-          vid_info
-        when 'list'
+
+        if input.to_i > 0
+          puts @vids[input.to_i-1]
+        elsif input == 'list'
           list_vids
         else
           puts "#{input} not an option, type list or exit" unless input == 'exit'

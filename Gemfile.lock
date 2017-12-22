@@ -2,11 +2,14 @@ PATH
   remote: .
   specs:
     daily-trending-vids (0.1.0)
+      colorize
+      nokogiri
 
 GEM
   remote: https://rubygems.org/
   specs:
     coderay (1.1.2)
+    colorize (0.8.1)
     method_source (0.9.0)
     mini_portile2 (2.3.0)
     nokogiri (1.8.1)
@@ -22,7 +25,6 @@ PLATFORMS
 DEPENDENCIES
   bundler (~> 1.16)
   daily-trending-vids!
-  nokogiri
   pry
   rake (~> 10.0)
 
