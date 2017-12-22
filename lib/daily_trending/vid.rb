@@ -20,6 +20,8 @@ class DailyTrending::Vid
     vid_2.category = 'Film & Animation'
 
     [vid_1,vid_2]
+
+    self.scrape_vids
   end
 
   #////////Go to youtube and find trending videos//////
@@ -34,7 +36,8 @@ class DailyTrending::Vid
   end
 
   def self.scrape_youtube
-
+    doc = Nokogiri::HTML(open("https://www.youtube.com/feed/trending"))
+    binding.pry
   end
 
 end
