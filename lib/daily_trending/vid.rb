@@ -39,9 +39,17 @@ class DailyTrending::Vid
     doc = Nokogiri::HTML(open("https://www.youtube.com/feed/trending"))
 
 
-# doc.traverse do |node|
-#     node.css("li div div[class='yt-lockup-content'] div").first
+# n = doc.traverse do |node|
+#     node.css("li div div[class='yt-lockup-content'] div")
 # end
+#
+# c = n.map do |l|
+#    l.children.first
+# end
+#
+#  c.map {|a| a}
+
+
 
     binding.pry
   end
