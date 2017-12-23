@@ -37,8 +37,11 @@ class DailyTrending::Vid
 
   def self.scrape_youtube
     doc = Nokogiri::HTML(open("https://www.youtube.com/feed/trending"))
-    # m = doc.css('div#content > div > div > div')
-    # l = m.css('ol > li > div > div > div')
+
+
+# doc.traverse do |node|
+#   puts node if node.children.count == 4 && node.css("div[id='grid-container'][class='style-scope']")
+# end
 
     binding.pry
   end
