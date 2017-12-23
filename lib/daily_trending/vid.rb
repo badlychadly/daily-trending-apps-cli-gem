@@ -40,7 +40,7 @@ class DailyTrending::Vid
 
 
 # doc.traverse do |node|
-#   puts node if node.children.count == 4 && node.css("div[id='grid-container'][class='style-scope']")
+#     node.css("li div div[class='yt-lockup-content'] div").first
 # end
 
     binding.pry
