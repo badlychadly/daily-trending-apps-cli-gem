@@ -1,5 +1,6 @@
 class DailyTrending::Vid
   attr_accessor :title, :views, :description, :url, :category
+  include Elementor
 
   def self.today
 
@@ -35,6 +36,7 @@ class DailyTrending::Vid
     vids
   end
 
+
   def self.scrape_youtube
     doc = Nokogiri::HTML(open("https://www.youtube.com/feed/trending"))
 
@@ -42,6 +44,11 @@ class DailyTrending::Vid
 
 # n = doc.traverse do |node|
 #     node.css("li div div[class='yt-lockup-content'] div")
+# end
+#
+# f = elements(:from => :body) do |tag|
+#   tag.headers "h1"
+#   tag.details
 # end
 #
 # c = n.map do |l|
