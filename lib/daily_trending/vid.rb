@@ -38,16 +38,21 @@ class DailyTrending::Vid
   def self.scrape_youtube
     doc = Nokogiri::HTML(open("https://www.youtube.com/feed/trending"))
 
+# try first breadth alg. to assign and access certain attributes
 
 # n = doc.traverse do |node|
 #     node.css("li div div[class='yt-lockup-content'] div")
 # end
 #
 # c = n.map do |l|
-#    l.children.first
+#    l.children
 # end
 #
 #  c.map {|a| a}
+#
+#  l = c.map {|a| a.attribute('href')}.compact
+#
+#  l.map{|s| s.value}
 
 
 
