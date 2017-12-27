@@ -38,7 +38,7 @@ class DailyTrending::Vid
 
 
   def self.scrape_youtube
-    doc = Nokogiri::HTML(open("https://www.youtube.com/feed/trending"))
+    doc = Nokogiri::HTML(open("http://www.metacafe.com/"))
 
 # try first breadth alg. to assign and access certain attributes
 
