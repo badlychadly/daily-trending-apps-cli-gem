@@ -1,48 +1,31 @@
 class DailyTrending::Vid
-  attr_accessor :title, :views, :description, :url
+  attr_accessor :title, :developer,:app_url, :dev_url, :rating, :price
 
   def self.today
-
-    vid_1 = self.new
-    vid_1.title = 'BITTEN by a GIANT DESERT CENTIPEDE!'
-    vid_1.views = '1,300,174'
-    vid_1.description = 'On this episode of Breaking Trail, Coyote is bitten by a Giant Desert Centipede!'
-    vid_1.url = 'https://www.youtube.com/watch?v=nWZMfPP34g8'
-
-    vid_2 = self.new
-    vid_2.title = "Lucky the iPhone singing cockatiel is OVER it!"
-    vid_2.views = '449,340'
-    vid_2.description = 'Lucky became famous for singing a perfect rendition
-    of an iPhone ringtone. But watch what happens when he sees his own video!
-    Dude is OVER it.'
-    vid_2.url = 'https://www.youtube.com/watch?v=8eo-L_3OWAQ'
-
-
-    [vid_1,vid_2]
-
-    self.scrape_vids
+    self.scrape_apps
   end
 
-  #////////Go to youtube and find trending videos//////
-  def self.scrape_vids
-    vids = []
+
+  def self.scrape_apps
+    apps = []
     #extract properties from each video
     #instaniate a video
     #make method for individual website
-    vids << self.scrape_vevo
+    apps << self.scrape_play_store
     #possibly scrape other websites
-    vids
+    apps
   end
 
 
-  def self.scrape_vevo
-    doc = Nokogiri::HTML(open("https://www.vevo.com/trending-now"))
-
-    item_info = doc.traverse do |node|
-       node.css("div.feed-item-info")
-    end
-
-    binding.pry
-  end
+  def self.scrape_play_store
+    doc = Nokogiri::HTML(open("https://play.google.com/store/apps/collection/promotion_3000792_new_releases_apps?clp=SpEBCikKI3Byb21vdGlvbl8zMDAwNzkyX25ld19yZWxlYXNlc19hcHBzEAcYAxpkCl5uZXdfaG9tZV9kZXZpY2VfZmVhdHVyZWRfcmVjczJfdG9waWNfdjFfbGF1bmNoX2FwcHNfVVNfXzE1MTM5Mjk2MDAwMDBfNl9wcm9tb18xNTEzOTY1NjY2OTA1MDAwEAwYAw%3D%3D%3AS%3AANO1ljKilBo&hl=en"))
+  #   app_info = {}
+  #
+  #   doc.css('div.card-content.id-track-click.id-track-impression').each do |app|
+  #     app = self.new
+  #     app.title = app.css('a.title').attribute('title').value
+  #   end
+  #   app
+  # end
 
 end
