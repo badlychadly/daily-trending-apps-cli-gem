@@ -26,7 +26,7 @@ class DailyTrending::Cli
     def menu
       input = nil
       until input == 'exit'
-        puts "Enter the number of the video you that interests you or type exit"
+        puts "Enter the number of the app that interests you or type exit"
         input = gets.strip.downcase
 
         if input.to_i > 0
@@ -39,27 +39,9 @@ class DailyTrending::Cli
       end
     end
 
-    #vid info possibly needs to be in another file
-    def vid_info
-      puts <<-DOC
-      Description: Lucky became famous for singing a perfect rendition
-      of an iPhone ringtone. But watch what happens when he sees his own video!
-      Dude is OVER it.
-
-      Original video: https://www.youtube.com/watch?v=wO0vP...
-      Category: Film & Animation
-      DOC
-    end
 
     def goodbye
       puts "See you next time!!"
     end
-
-  # shows uploaders info:
-  # "Please SUBSCRIBE - http://bit.ly/BWchannel
-  # Tour Tickets Available Now! - http://bit.ly/bravetickets
-  # Buy Brave Wilderness Gear - http://bit.ly/BWmerch
-  # Buy Coyote’s Book - http://bit.ly/BOOKbraveadventures
-  # Watch More - http://bit.ly/BTwarrior"
 
 end

@@ -24,4 +24,20 @@ class DailyTrending::Vid
     apps
   end
 
+  def self.scrape_app_page
+    page = Nokogiri::HTML(open('https://play.google.com/store/apps/details?id=homeworkout.homeworkouts.noequipment&hl=en'))
+    binding.pry
+    puts <<-DOC
+    con_rating: Everyone
+    genre: Health and Fitness
+    rate_cnt: 75,000
+    description: "Home Workouts provides daily workout routines"
+
+    want them to choose the number of the app they want more info on
+    info only is seen when the select that app
+    DOC
+
+  end
+
+
 end
