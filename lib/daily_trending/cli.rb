@@ -1,27 +1,26 @@
 class DailyTrending::Cli
 
   def call
-    list_vids
+    list_apps
     menu
     goodbye
   end
 
-  def list_vids
-    puts "Today's Trendables"
-    # puts <<-DOC
-    # 1. BITTEN by a GIANT DESERT CENTIPEDE!#.colorize
-    #             1,300,174 views
-    #
-    # 2.Lucky the iPhone singing cockatiel is OVER it!#.colorize
-    #             449,340 views
-    # DOC
-    @vids = DailyTrending::Vid.today
-    @vids.each.with_index(1) do |vid, i|
+  def list_apps
+    s = "******".colorize(:blue)
+    puts ""
+    puts "  #{s}"+"Today's Trendables"+s
+    puts ""
+
+    @apps = DailyTrending::Vid.today
+    @apps.each.with_index(1) do |app, i|
       puts <<-DOC
-      #{i} #{vid.title.colorize(:green)}
-                    #{vid.views}  views
+      #{i} #{app.title.colorize(:green)}
+          #{app.rating}  #{app.price}
+
       DOC
     end
+    puts ""
   end
 
     def menu
@@ -31,9 +30,9 @@ class DailyTrending::Cli
         input = gets.strip.downcase
 
         if input.to_i > 0
-          puts @vids[input.to_i-1]
+          puts @apps[input.to_i-1]
         elsif input == 'list'
-          list_vids
+          list_apps
         else
           puts "#{input} not an option, type list or exit" unless input == 'exit'
         end
