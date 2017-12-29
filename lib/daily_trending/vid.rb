@@ -1,5 +1,5 @@
 class DailyTrending::Vid
-  attr_accessor :title, :dev,:app_url, :dev_url, :rating, :price
+  attr_accessor :title, :dev,:app_url, :dev_url, :rating, :price, :genre, :con_rating, :rate_cnt, :description
   @@all = []
 
   def self.today
@@ -28,18 +28,13 @@ class DailyTrending::Vid
 
 
 
-  def self.scrape_app_page
-    page = Nokogiri::HTML(open('https://play.google.com/store/apps/details?id=homeworkout.homeworkouts.noequipment&hl=en'))
-    puts <<-DOC
-    con_rating: Everyone
-    genre: Health and Fitness
-    rate_cnt: 75,000
-    description: "Home Workouts provides daily workout routines"
+  def scrape_app_page(url)
+    page = Nokogiri::HTML(open(url))
 
-    want them to choose the number of the app they want more info on
-    info only is seen when the select that app
-    DOC
-
+    self.genre = page.css('a.document-subtitle.category').text
+    self.con_rating = page.css('span.document-subtitle.content-rating-title').text
+    self.rate_cnt = page.css('span.rating-count').text
+    self.description = page.css('div.show-more-content.text-body').text
   end
 
 

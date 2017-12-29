@@ -40,9 +40,14 @@ class DailyTrending::Cli
     end
 
     def app_info(app)
+      app.scrape_app_page(app.app_url)
       puts <<-DOC
-      #{app.title.upcase}
-      #{app.dev}
+          #{app.title.upcase}
+          #{app.dev}    #{app.genre}          #{app.rate_cnt}
+
+
+
+          #{app.description}
 
       DOC
     end
