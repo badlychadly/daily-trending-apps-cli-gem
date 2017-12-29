@@ -3,7 +3,6 @@ PATH
   specs:
     daily-trending-vids (0.1.0)
       colorize
-      elementor (~> 0.0.8)
       nokogiri
 
 GEM
@@ -11,8 +10,6 @@ GEM
   specs:
     coderay (1.1.2)
     colorize (0.8.1)
-    elementor (0.0.8)
-      nokogiri
     method_source (0.9.0)
     mini_portile2 (2.3.0)
     nokogiri (1.8.1)
@@ -32,4 +29,4 @@ DEPENDENCIES
   rake (~> 10.0)
 
 BUNDLED WITH
-   1.16.0
+   1.16.1
