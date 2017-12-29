@@ -26,6 +26,8 @@ class DailyTrending::Vid
 
 
 
+
+
   def self.scrape_app_page
     page = Nokogiri::HTML(open('https://play.google.com/store/apps/details?id=homeworkout.homeworkouts.noequipment&hl=en'))
     puts <<-DOC
