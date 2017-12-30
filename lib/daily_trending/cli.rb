@@ -12,7 +12,7 @@ class DailyTrending::Cli
     puts "  #{s}"+"Today's Trendables"+s
     puts ""
 
-    @apps = DailyTrending::Vid.today
+    @apps = DailyTrending::App.today
     @apps.each.with_index(1) do |app, i|
       puts <<-DOC
       #{i} #{app.title.colorize(:green)}

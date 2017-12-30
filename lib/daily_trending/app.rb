@@ -1,4 +1,4 @@
-class DailyTrending::Vid
+class DailyTrending::App
   attr_accessor :title, :dev,:app_url, :dev_url, :rating, :price, :genre, :con_rating, :rate_cnt, :description
   @@all = []
 

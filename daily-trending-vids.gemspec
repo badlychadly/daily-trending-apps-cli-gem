@@ -4,13 +4,13 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require "daily_trending/version"
 
 Gem::Specification.new do |spec|
-  spec.name          = "daily-trending-vids"
+  spec.name          = "daily-trending-apps"
   spec.version       = DailyTrending::VERSION
   spec.authors       = ["'Chad Montoya'"]
   spec.email         = ["'chadmontoya21@yahoo.com'"]
 
-  spec.summary       = %q{Shows list of daily trending videos}
-  spec.description   = %q{Shows list of daily trending videos}
+  spec.summary       = %q{Shows list of daily trending apps}
+  spec.description   = %q{Shows list of daily trending apps}
   spec.homepage      = "TODO: Put your gem's website or public repo URL here."
 
   # Prevent pushing this gem to RubyGems.org. To allow pushes either set the 'allowed_push_host'
