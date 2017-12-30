@@ -16,7 +16,7 @@ class DailyTrending::Cli
     @apps.each.with_index(1) do |app, i|
       puts <<-DOC
       #{i} #{app.title.colorize(:green)}
-          #{app.rating}  #{app.price}
+        #{app.rating}        Cost: #{app.price}
 
       DOC
     end
