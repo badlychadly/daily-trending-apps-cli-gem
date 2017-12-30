@@ -15,7 +15,7 @@ class DailyTrending::Cli
     @apps = DailyTrending::App.today
     @apps.each.with_index(1) do |app, i|
       puts <<-DOC
-      #{i} #{app.title.colorize(:green)}
+      #{i} #{app.title.colorize(:blue)}
         #{app.rating}        Cost: #{app.price}
 
       DOC
@@ -42,12 +42,18 @@ class DailyTrending::Cli
     def app_info(app)
       app.scrape_app_page(app.app_url)
       puts <<-DOC
-          #{app.title.upcase}
-          #{app.dev}    #{app.genre}          #{app.rate_cnt}
+              #{app.title.upcase.colorize(:blue)}
+              Developers: #{app.dev}        Rated By: #{app.rate_cnt}
+                    Content For: #{app.con_rating}
 
-
+      DOC
+            puts "DESCRIPTION:".colorize(:red)
+      puts <<-DOC
 
           #{app.description}
+
+          Get App At: #{app.app_url.colorize(:red)}
+          More Apps By #{app.dev}: #{app.dev_url.colorize(:red)}
 
       DOC
     end
