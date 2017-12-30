@@ -52,8 +52,8 @@ class DailyTrending::Cli
 
           #{app.description}
 
-          Get App At: #{app.app_url.colorize(:red)}
-          More Apps By #{app.dev}: #{app.dev_url.colorize(:red)}
+      Get App At: #{app.app_url.colorize(:red)}
+      More Apps By #{app.dev}: #{app.dev_url.colorize(:red)}
 
       DOC
     end
