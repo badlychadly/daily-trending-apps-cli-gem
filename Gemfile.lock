@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    daily-trending-vids (0.1.0)
+    daily-trending-apps (0.1.0)
       colorize
       nokogiri
 
@@ -24,7 +24,7 @@ PLATFORMS
 
 DEPENDENCIES
   bundler (~> 1.16)
-  daily-trending-vids!
+  daily-trending-apps!
   pry
   rake (~> 10.0)
 

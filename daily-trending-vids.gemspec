@@ -8,6 +8,7 @@ Gem::Specification.new do |spec|
   spec.version       = DailyTrending::VERSION
   spec.authors       = ["'Chad Montoya'"]
   spec.email         = ["'chadmontoya21@yahoo.com'"]
+  spec.license       = 'MIT'
 
   spec.summary       = %q{Shows list of daily trending apps}
   spec.description   = %q{Shows list of daily trending apps}
