@@ -9,7 +9,7 @@ class DailyTrending::Cli
   def list_apps
     s = "******".colorize(:blue)
     puts ""
-    puts "  #{s}"+"Today's Trendables"+s
+    puts "  #{s}"+"New And Updated Apps!"+s
     puts ""
 
     @apps = DailyTrending::App.today
