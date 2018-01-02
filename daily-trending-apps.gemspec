@@ -8,10 +8,11 @@ Gem::Specification.new do |spec|
   spec.version       = DailyTrending::VERSION
   spec.authors       = ["'Chad Montoya'"]
   spec.email         = ["'chadmontoya21@yahoo.com'"]
+  spec.files         = ["lib/daily_trending.rb", "lib/daily_trending/app.rb", "lib/daily_trending/cli.rb"]
   spec.license       = 'MIT'
 
-  spec.summary       = %q{Shows list of daily trending apps}
-  spec.description   = %q{Shows list of daily trending apps}
+  spec.summary       = %q{Shows info on new and updated apps}
+  spec.description   = %q{Displays apps from Google Play Store}
   spec.homepage      = "TODO: Put your gem's website or public repo URL here."
 
   # Prevent pushing this gem to RubyGems.org. To allow pushes either set the 'allowed_push_host'
@@ -32,9 +33,9 @@ Gem::Specification.new do |spec|
 
   spec.add_development_dependency "bundler", "~> 1.16"
   spec.add_development_dependency "rake", "~> 10.0"
-  spec.add_development_dependency "pry"
+  spec.add_development_dependency "pry", "~> 0.11.3"
 
-  spec.add_dependency "nokogiri"
-  spec.add_dependency "colorize"
+  spec.add_dependency "nokogiri", "~> 0"
+  spec.add_dependency "colorize", "~> 0.8.1"
 
 end
