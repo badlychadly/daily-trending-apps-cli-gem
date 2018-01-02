@@ -12,7 +12,7 @@ class DailyTrending::Cli
     puts "  #{s}"+"New And Updated Apps!"+s
     puts ""
 
-    @apps = DailyTrending::App.today
+    @apps = DailyTrending::App.make_apps
     @apps.each.with_index(1) do |app, i|
       puts <<-DOC
       #{i} #{app.title.colorize(:blue)}
@@ -40,7 +40,7 @@ class DailyTrending::Cli
     end
 
     def app_info(app)
-      app.scrape_app_page(app.app_url)
+      app.make_app(app.app_url)
       puts <<-DOC
               #{app.title.upcase.colorize(:blue)}
               Developers: #{app.dev}        Rated By: #{app.rate_cnt}
