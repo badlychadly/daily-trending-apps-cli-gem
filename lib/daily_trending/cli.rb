@@ -43,8 +43,9 @@ class DailyTrending::Cli
       app.make_app(app.app_url)
       puts <<-DOC
               #{app.title.upcase.colorize(:blue)}
-              Developers: #{app.dev}        Rated By: #{app.rate_cnt}
-                    Content For: #{app.con_rating}
+              Developers: #{app.dev}
+                  Content For: #{app.con_rating}
+                      Rated By: #{app.rate_cnt}
 
       DOC
             puts "DESCRIPTION:".colorize(:red)
