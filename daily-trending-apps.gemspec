@@ -8,7 +8,7 @@ Gem::Specification.new do |spec|
   spec.version       = DailyTrending::VERSION
   spec.authors       = ["'Chad Montoya'"]
   spec.email         = ["'chadmontoya21@yahoo.com'"]
-  spec.files         = ["lib/daily_trending.rb", "lib/daily_trending/app.rb", "lib/daily_trending/cli.rb"]
+  spec.files         = ["lib/daily_trending.rb", "lib/daily_trending/app.rb", "lib/daily_trending/cli.rb","lib/daily_trending/version.rb"]
   spec.license       = 'MIT'
   spec.executables   << 'daily-trending-apps'
 
