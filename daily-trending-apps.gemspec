@@ -10,6 +10,7 @@ Gem::Specification.new do |spec|
   spec.email         = ["'chadmontoya21@yahoo.com'"]
   spec.files         = ["lib/daily_trending.rb", "lib/daily_trending/app.rb", "lib/daily_trending/cli.rb"]
   spec.license       = 'MIT'
+  spec.executables   << 'daily-trending-apps'
 
   spec.summary       = %q{Shows info on new and updated apps}
   spec.description   = %q{Displays apps from Google Play Store}
@@ -35,7 +36,7 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "rake", "~> 10.0"
   spec.add_development_dependency "pry", "~> 0.11.3"
 
-  spec.add_dependency "nokogiri", "~> 0"
+  spec.add_dependency "nokogiri", "~> 1.8"
   spec.add_dependency "colorize", "~> 0.8.1"
 
 end

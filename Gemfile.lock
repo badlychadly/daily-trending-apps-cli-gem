@@ -1,9 +1,9 @@
 PATH
   remote: .
   specs:
-    daily-trending-apps (0.1.0)
-      colorize
-      nokogiri
+    daily-trending-apps (0.1.1)
+      colorize (~> 0.8.1)
+      nokogiri (~> 1.8)
 
 GEM
   remote: https://rubygems.org/
@@ -25,7 +25,7 @@ PLATFORMS
 DEPENDENCIES
   bundler (~> 1.16)
   daily-trending-apps!
-  pry
+  pry (~> 0.11.3)
   rake (~> 10.0)
 
 BUNDLED WITH
