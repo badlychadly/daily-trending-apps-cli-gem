@@ -6,9 +6,10 @@ class DailyTrending::Scraper
   end
 
   def make_apps
-    scrape_play_store.map do |a|
+    scrape_play_store.each do |a|
       DailyTrending::App.new_from_index(a)
-    end.flatten
+    end
+    DailyTrending::App.all
   end
 
 end

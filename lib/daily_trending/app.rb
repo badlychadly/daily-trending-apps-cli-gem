@@ -12,14 +12,24 @@ class DailyTrending::App
   # def self.make_apps
   def self.new_from_index(a)
       app = self.new
+      app.save
       app.title = a.css('a.title').attribute('title').value
       app.dev = a.css('a.subtitle').attribute('title').value
       app.dev_url = ("https://play.google.com" + a.css('a.subtitle').attribute('href').value)
       app.app_url = ("https://play.google.com" + a.css('a.title').attribute('href').value)
       app.rating = a.css('div.tiny-star').attribute('aria-label').value.strip.slice(/\d.\S/)<<"/5 Stars"
       app.price = a.at_css('span.display-price').text
-      app.save
   end
+
+  def exist?
+    self.class.all.any?{|ap| ap.title == self.title}
+  end
+
+  # def self.exist?(app)
+  #   self.all.any? do |a|
+  #     a.title == app.title
+  #   end
+  # end
 
   def save
     @@all << self
