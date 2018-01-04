@@ -3,17 +3,14 @@ class DailyTrending::App
   @@all = []
 
 
-  def self.scrape_play_store
-    doc = Nokogiri::HTML(open("https://play.google.com/store/apps/collection/promotion_3000792_new_releases_apps?clp=SpEBCikKI3Byb21vdGlvbl8zMDAwNzkyX25ld19yZWxlYXNlc19hcHBzEAcYAxpkCl5uZXdfaG9tZV9kZXZpY2VfZmVhdHVyZWRfcmVjczJfdG9waWNfdjFfbGF1bmNoX2FwcHNfVVNfXzE1MTQ0NDgwMDAwMDBfNl9wcm9tb18xNTE0NDkxNzcwMTgwMDAwEAwYAw%3D%3D%3AS%3AANO1ljLrBj0&hl=en"))
-    doc.css('div.card-content.id-track-click.id-track-impression')
-  end
-
 
     # Iterates  #scrape_play_store method to # Makes the apps and assigns
     #  the attributes available on Google play store
 
-  def self.make_apps
-    scrape_play_store.each do |a|
+
+
+  # def self.make_apps
+  def self.new_from_index(a)
       app = self.new
       app.title = a.css('a.title').attribute('title').value
       app.dev = a.css('a.subtitle').attribute('title').value
@@ -22,8 +19,6 @@ class DailyTrending::App
       app.rating = a.css('div.tiny-star').attribute('aria-label').value.strip.slice(/\d.\S/)<<"/5 Stars"
       app.price = a.at_css('span.display-price').text
       app.save
-    end
-    all
   end
 
   def save
