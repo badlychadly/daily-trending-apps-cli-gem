@@ -12,7 +12,7 @@ class DailyTrending::Cli
     puts "  #{s}"+"New And Updated Apps!"+s
     puts ""
 
-    @apps = DailyTrending::App.make_apps
+    @apps = DailyTrending::App.make_apps unless @apps != nil
     @apps.each.with_index(1) do |app, i|
       puts <<-DOC
       #{i} #{app.title.colorize(:blue)}
