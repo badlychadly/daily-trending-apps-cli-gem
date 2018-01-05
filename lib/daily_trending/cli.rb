@@ -7,7 +7,7 @@ class DailyTrending::Cli
   end
 
   def list_apps
-    s = "******".colorize(:blue)
+    s = "******".colorize(:red)
     puts ""
     puts "  #{s}"+"New And Updated Apps!"+s
     puts ""
@@ -15,7 +15,7 @@ class DailyTrending::Cli
     @apps = DailyTrending::Scraper.new.make_apps unless @apps != nil
     @apps.each.with_index(1) do |app, i|
       puts <<-DOC
-      #{i} #{app.title.colorize(:blue)}
+      #{i}. #{app.title.colorize(:blue)}
         #{app.rating}        Cost: #{app.price}
 
       DOC
@@ -26,7 +26,7 @@ class DailyTrending::Cli
     def menu
       input = nil
       until input == 'exit'
-        puts "Enter the number of the app that interests you or type exit"
+        puts "Enter the number of the app you'd like more info on, or type exit"
         input = gets.strip.downcase
 
         if input.to_i > 0
@@ -43,7 +43,7 @@ class DailyTrending::Cli
       app.make_app(app.app_url)
       puts <<-DOC
               #{app.title.upcase.colorize(:blue)}
-              Developers: #{app.dev}
+                Developers: #{app.dev}
                   Content For: #{app.con_rating}
                       Rated By: #{app.rate_cnt}
 
@@ -57,11 +57,23 @@ class DailyTrending::Cli
       More Apps By #{app.dev}: #{app.dev_url.colorize(:red)}
 
       DOC
+    input = nil
+    puts "  Type 'list' to see apps again or 'exit' to leave"
+    until input == 'list'|| input == 'exit'
+      input = gets.strip.downcase
+      if input == 'list'
+        list_apps
+      elsif input == 'exit'
+        goodbye
+        exit
+      else
+        puts "  #{input} not an option, type list or exit" unless input == 'exit'
+      end
     end
+  end
 
 
-    def goodbye
-      puts "See you next time!!"
-    end
-
+  def goodbye
+    puts "See you next time!!"
+  end
 end
