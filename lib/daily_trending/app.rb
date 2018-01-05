@@ -36,16 +36,11 @@ class DailyTrending::App
   end
 
 
-  def scrape_app(url)
-    Nokogiri::HTML(open(url))
-  end
-
-
-  def make_app(url)
-    page = scrape_app(url)
+  def make_app(xml_info)
+    page = xml_info
     self.genre = page.css('a.document-subtitle.category').text
+    self.description = page.css('div.show-more-content.text-body').text
     self.con_rating = page.css('span.document-subtitle.content-rating-title').text
     self.rate_cnt = page.css('span.rating-count').text
-    self.description = page.css('div.show-more-content.text-body').text
   end
 end

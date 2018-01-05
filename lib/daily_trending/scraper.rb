@@ -12,4 +12,8 @@ class DailyTrending::Scraper
     DailyTrending::App.all
   end
 
+  def scrape_app(app_url)
+    Nokogiri::HTML(open(app_url))
+  end
+
 end

@@ -40,7 +40,8 @@ class DailyTrending::Cli
     end
 
     def app_info(app)
-      app.make_app(app.app_url)
+      page = DailyTrending::Scraper.new.scrape_app(app.app_url)
+      app.make_app(page)
       puts <<-DOC
               #{app.title.upcase.colorize(:blue)}
                 Developers: #{app.dev}
