@@ -12,7 +12,7 @@ class DailyTrending::Cli
     puts "  #{s}"+"New And Updated Apps!"+s
     puts ""
 
-    @apps = DailyTrending::Scraper.new.make_apps unless @apps != nil
+    @apps = DailyTrending::Scraper.make_apps unless @apps != nil
     @apps.each.with_index(1) do |app, i|
       puts <<-DOC
       #{i}. #{app.title.colorize(:blue)}
@@ -40,8 +40,8 @@ class DailyTrending::Cli
     end
 
     def app_info(app)
-      page = DailyTrending::Scraper.new.scrape_app(app.app_url)
-      app.make_app(page)
+      xml_info = DailyTrending::Scraper.scrape_app(app.app_url)
+      app.make_app(xml_info)
       puts <<-DOC
               #{app.title.upcase.colorize(:blue)}
                 Developers: #{app.dev}
