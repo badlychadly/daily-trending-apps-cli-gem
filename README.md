@@ -1,4 +1,4 @@
-# Daily::Trending::Vids
+# Daily::Trending::Apps
 
 This is a ruby CLI Gem that displays a list of new and updated apps froms the Google Play Store,
 follow CLI instructions to learn more about the apps that interest you.
@@ -8,7 +8,7 @@ follow CLI instructions to learn more about the apps that interest you.
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'daily-trending-vids'
+gem 'daily-trending-apps'
 ```
 
 And then execute:
@@ -17,7 +17,7 @@ And then execute:
 
 Or install it yourself as:
 
-    $ gem install daily-trending-vids
+    $ gem install daily-trending-apps
 
 ## Usage
 
@@ -33,7 +33,7 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/'badlychadly'/daily-trending-vids.
+Bug reports and pull requests are welcome on GitHub at https://github.com/'badlychadly'/daily-trending-apps.
 
-##License
+## License
 The gem is available as open source under the terms of the [Mit License](http://opensource.org/licenses/MIT).
