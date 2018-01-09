@@ -3,13 +3,6 @@ class DailyTrending::App
   @@all = []
 
 
-
-    # Iterates  #scrape_play_store method to # Makes the apps and assigns
-    #  the attributes available on Google play store
-
-
-
-  # def self.make_apps
   def self.new_from_index(a)
       app = self.new
       app.title = a.css('a.title').attribute('title').value
