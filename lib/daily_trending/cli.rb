@@ -29,7 +29,7 @@ class DailyTrending::Cli
         puts "Enter the number of the app you'd like more info on, or type exit"
         input = gets.strip.downcase
 
-        if input.to_i > 0
+        if input.to_i > 0 && input.to_i <= DailyTrending::App.all.size
           app_info(@apps[input.to_i-1])
         elsif input == 'list'
           list_apps
