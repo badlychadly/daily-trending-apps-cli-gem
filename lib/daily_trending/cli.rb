@@ -29,7 +29,7 @@ class DailyTrending::Cli
         input = gets.strip.downcase
 
         if input.to_i > 0 && input.to_i <= DailyTrending::App.all.size
-          app_info(@apps[input.to_i-1])
+          app_info(DailyTrending::App.all[input.to_i-1])
         elsif input == 'list'
           list_apps
         else
@@ -39,8 +39,7 @@ class DailyTrending::Cli
     end
 
     def app_info(app)
-      xml_info = DailyTrending::Scraper.scrape_app(app.app_url)
-      app.make_app(xml_info)
+      DailyTrending::Scraper.new.scrape_app(app)
       puts <<-DOC
               #{app.title.upcase.colorize(:blue)}
                 Developers: #{app.dev}
@@ -65,7 +64,6 @@ class DailyTrending::Cli
         list_apps
       elsif input == 'exit'
         goodbye
-        exit
       else
         puts "  #{input} not an option, type list or exit" unless input == 'exit'
       end
@@ -75,5 +73,6 @@ class DailyTrending::Cli
 
   def goodbye
     puts "See you next time!!"
+    exit
   end
 end
