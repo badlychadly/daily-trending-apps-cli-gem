@@ -11,9 +11,8 @@ class DailyTrending::Cli
     puts ""
     puts "  #{s}"+"New And Updated Apps!"+s
     puts ""
-
-    @apps = DailyTrending::Scraper.make_apps unless @apps != nil
-    @apps.each.with_index(1) do |app, i|
+    DailyTrending::Scraper.new.scrape_play_store
+    DailyTrending::App.all.each.with_index(1) do |app, i|
       puts <<-DOC
       #{i}. #{app.title.colorize(:blue)}
         #{app.rating}        Cost: #{app.price}
