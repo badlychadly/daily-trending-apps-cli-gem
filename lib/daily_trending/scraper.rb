@@ -7,7 +7,6 @@ class DailyTrending::Scraper
     mp.css('div.card-content.id-track-click.id-track-impression').each do |a|
       app = DailyTrending::App.new
       app.title = a.css('a.title').attribute('title').value
-      app.dev = a.css('a.subtitle').attribute('title').value
       app.dev_url = (@doc + a.css('a.subtitle').attribute('href').value)
       app.app_url = (@doc + a.css('a.title').attribute('href').value)
       app.rating = a.css('div.tiny-star').attribute('aria-label').value.strip.slice(/\d.\S/)<<"/5 Stars"
@@ -19,6 +18,8 @@ class DailyTrending::Scraper
 
   def scrape_app(app)
     page = Nokogiri::HTML(open(app.app_url))
+    binding.pry
+    app.dev = page.css('a.document-subtitle.primary').text.strip
     app.genre = page.css('a.document-subtitle.category').text.strip
     app.description = page.css('div.show-more-content.text-body').text
     app.con_rating = page.css('span.document-subtitle.content-rating-title').text
