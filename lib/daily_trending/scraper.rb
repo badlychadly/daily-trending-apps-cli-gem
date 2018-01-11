@@ -30,6 +30,4 @@ class DailyTrending::Scraper
     app.rate_cnt = page.css('span.rating-count').text
     app
   end
-
-
 end
