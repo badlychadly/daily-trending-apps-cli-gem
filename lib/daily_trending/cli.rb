@@ -23,6 +23,25 @@ class DailyTrending::Cli
   end
 
 
+  def menu
+    input = nil
+    until input == 'exit'
+      input = gets.strip.downcase
+
+      if input.to_i > 0 && input.to_i <= DailyTrending::App.all.size
+        app_info(DailyTrending::App.find(input))
+      elsif input == 'list'
+        list_apps
+      elsif input == 'exit'
+        goodbye
+      else
+        puts "  #{input} not an option, type list or exit" unless input == 'exit'
+      end
+    end
+  end
+
+
+
     def app_info(app)
       DailyTrending::Scraper.new.scrape_app(app)
       puts <<-DOC
@@ -48,21 +67,11 @@ class DailyTrending::Cli
   end
 
 
-  def menu
-    input = nil
-    until input == 'exit'
-      input = gets.strip.downcase
-      if input.to_i > 0 && input.to_i <= DailyTrending::App.all.size
-        app_info(DailyTrending::App.find(input))
-      elsif input == 'list'
-        list_apps
-      elsif input == 'exit'
-        goodbye
-      else
-        puts "  #{input} not an option, type list or exit" unless input == 'exit'
-      end
+    def goodbye
+      puts "See you next time!!"
+      exit
     end
-  end
+
 
   # def open_browser(app)
   #   puts "Would you like to visit this App page?? (y/n)"
@@ -75,9 +84,4 @@ class DailyTrending::Cli
   #   end
   # end
 
-
-  def goodbye
-    puts "See you next time!!"
-    exit
-  end
 end
