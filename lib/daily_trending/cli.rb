@@ -29,7 +29,7 @@ class DailyTrending::Cli
         input = gets.strip.downcase
 
         if input.to_i > 0 && input.to_i <= DailyTrending::App.all.size
-          app_info(DailyTrending::App.all[input.to_i-1])
+          app_info(DailyTrending::App.find(input))
         elsif input == 'list'
           list_apps
         else

@@ -8,8 +8,8 @@ class DailyTrending::Scraper
       app = DailyTrending::App.new
       app.title = a.css('a.title').attribute('title').value
       app.dev = a.css('a.subtitle').attribute('title').value
-      app.dev_url = ("https://play.google.com" + a.css('a.subtitle').attribute('href').value)
-      app.app_url = ("https://play.google.com" + a.css('a.title').attribute('href').value)
+      app.dev_url = (@doc + a.css('a.subtitle').attribute('href').value)
+      app.app_url = (@doc + a.css('a.title').attribute('href').value)
       app.rating = a.css('div.tiny-star').attribute('aria-label').value.strip.slice(/\d.\S/)<<"/5 Stars"
       app.price = a.at_css('span.display-price').text
       app.exist? ? DailyTrending::App.all.freeze : app.save

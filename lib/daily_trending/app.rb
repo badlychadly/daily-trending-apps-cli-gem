@@ -3,6 +3,16 @@ class DailyTrending::App
   @@all = []
 
 
+  def self.all
+    @@all
+  end
+
+
+  def self.find(input)
+    @@all[input.to_i-1]
+  end
+
+
   def exist?
     self.class.all.any?{|ap| ap.title == self.title}
   end
@@ -10,9 +20,5 @@ class DailyTrending::App
 
   def save
     @@all << self
-  end
-
-  def self.all
-    @@all
   end
 end
