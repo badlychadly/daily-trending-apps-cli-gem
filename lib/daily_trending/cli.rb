@@ -3,7 +3,6 @@ class DailyTrending::Cli
   def call
     list_apps
     menu
-    goodbye
   end
 
   def list_apps
@@ -20,23 +19,9 @@ class DailyTrending::Cli
       DOC
     end
     puts ""
+    puts "Enter the number of the app you'd like more info on, or type exit"
   end
 
-    def menu
-      input = nil
-      until input == 'exit'
-        puts "Enter the number of the app you'd like more info on, or type exit"
-        input = gets.strip.downcase
-
-        if input.to_i > 0 && input.to_i <= DailyTrending::App.all.size
-          app_info(DailyTrending::App.find(input))
-        elsif input == 'list'
-          list_apps
-        else
-          puts "#{input} not an option, type list or exit" unless input == 'exit'
-        end
-      end
-    end
 
     def app_info(app)
       DailyTrending::Scraper.new.scrape_app(app)
@@ -58,12 +43,18 @@ class DailyTrending::Cli
       DOC
       # open_browser(app)
 
-
-    input = nil
     puts "  Type 'list' to see apps again or 'exit' to leave"
-    until input == 'list'|| input == 'exit'
+      menu
+  end
+
+
+  def menu
+    input = nil
+    until input == 'exit'
       input = gets.strip.downcase
-      if input == 'list'
+      if input.to_i > 0 && input.to_i <= DailyTrending::App.all.size
+        app_info(DailyTrending::App.find(input))
+      elsif input == 'list'
         list_apps
       elsif input == 'exit'
         goodbye

@@ -22,8 +22,7 @@ class DailyTrending::App
     @@all << self
   end
 
-  # def open_in_browser
-  #   binding.pry
-  #   system("start '#{app_url}'")
-  # end
+  def open_in_browser
+    system("open '#{app_url}'")
+  end
 end
