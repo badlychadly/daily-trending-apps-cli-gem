@@ -21,4 +21,9 @@ class DailyTrending::App
   def save
     @@all << self
   end
+
+  # def open_in_browser
+  #   binding.pry
+  #   system("start '#{app_url}'")
+  # end
 end
