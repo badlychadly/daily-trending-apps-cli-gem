@@ -1,6 +1,13 @@
 class DailyTrending::App
-  attr_accessor :title, :dev,:app_url, :dev_url, :rating, :price, :genre, :con_rating, :rate_cnt, :description
+  attr_accessor :title, :dev, :app_url, :dev_url, :rating, :price, :genre, :con_rating, :rate_cnt, :description
   @@all = []
+
+
+  def initialize(**args)
+    args.each do |k, v|
+      send("#{k}=", v)
+    end
+  end
 
 
   def self.all
