@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    daily-trending-apps (0.1.7)
+    daily-trending-apps (0.1.8)
       colorize (~> 0.8.1)
       nokogiri (~> 1.8)
 
